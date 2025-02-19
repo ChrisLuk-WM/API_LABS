@@ -3,7 +3,12 @@ import bodyParser from "koa-bodyparser";
 
 const router = new Router({prefix: '/api/v1/articles'});
 
-const articles = [
+interface Article{
+    title: string
+    fullText: string
+}
+
+const articles: Article[] = [
  {title:'hello article', fullText:'some text here to fill the body'},
  {title:'another article', fullText:'again here is some text here to fill'},
  {title:'coventry university ', fullText:'some news about coventry university'},
@@ -31,11 +36,11 @@ const getById = async (ctx: RouterContext, next: any) => {
 const createArticle = async (ctx: RouterContext, next: any) => {
     // The body parser gives us access to the request body on ctx.request.body.
     // Use this to extract the title and fullText we were sent.
-    let {title, fullText}: any = ctx.request.body;
+    let newArticle: Article = <Article> ctx.request.body;
 
     // In turn, define a new article for addition to the array.
     
-    let newArticle = {title:title, fullText:fullText};
+    // let newArticle = {title:title, fullText:fullText};
     articles.push(newArticle);
     // Finally send back appropriate JSON and status code.
     // Once we move to a DB store, the newArticle sent back will now have its ID.
