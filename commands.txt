@@ -1,3 +1,15 @@
 npx tsc -init
 
 npm i koa koa-bodyparser koa-json koa-logger koa-router @types/koa @types/koa-bodyparser @types/koa-logger @types/koa-router
+
+complie
+tsc
+
+execute
+node
+
+
+
+
+username: postgres
+password: postgres

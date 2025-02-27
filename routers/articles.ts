@@ -1,5 +1,6 @@
 import Router, {RouterContext} from "koa-router";
 import bodyParser from "koa-bodyparser";
+import * as db from "../helpers/database";
 
 const router = new Router({prefix: '/api/v1/articles'});
 
@@ -17,7 +18,8 @@ const articles: Article[] = [
 
 const getAll = async (ctx: RouterContext, next: any) => {
     // Use the response body to send the articles as JSON.
-    ctx.body = articles;
+    let data = await db.run_query(`SELECT * FROM public."Articles"`, "")
+    ctx.body = data;
     await next();
 }
 const getById = async (ctx: RouterContext, next: any) => {
@@ -37,6 +39,7 @@ const createArticle = async (ctx: RouterContext, next: any) => {
     // The body parser gives us access to the request body on ctx.request.body.
     // Use this to extract the title and fullText we were sent.
     let newArticle: Article = <Article> ctx.request.body;
+    db.run_insert(`INSERT INTO public."Articles"(title, "allText", "authorId") VALUES ('coventry university ', 'coventry university', 1);`, "")
 
     // In turn, define a new article for addition to the array.
     
