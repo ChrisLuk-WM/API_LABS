@@ -71,9 +71,9 @@ const deleteArticle = async (ctx:RouterContext, next: any) => {
 }
 
 router.get('/', getAll);
-router.get('/:id([0-9]{1,})', getById);
-router.post('/', bodyParser(), basicAuth, createArticle);
-router.put('/:id([0-9]{1,})', bodyParser(), basicAuth, updateArticle);
-router.delete('/:id([0-9]{1,})', deleteArticle);
+router.get('/:id([0-9]{1,})', basicAuth, getById);
+router.post('/', basicAuth, bodyParser(), createArticle);
+router.put('/:id([0-9]{1,})', basicAuth, bodyParser(), updateArticle);
+router.delete('/:id([0-9]{1,})', basicAuth, deleteArticle);
 
 export { router };
