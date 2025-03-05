@@ -1,6 +1,9 @@
 import Router, {RouterContext} from 'koa-router';
 import bodyParser from 'koa-bodyparser';
 import * as articlesmodel from '../models/articles';
+import {validateArticle} from '../controllers/validation';
+import { basicAuth } from '../controllers/auths';
+
 
 const router = new Router({prefix: '/api/v1/articles'});
 
@@ -69,8 +72,8 @@ const deleteArticle = async (ctx:RouterContext, next: any) => {
 
 router.get('/', getAll);
 router.get('/:id([0-9]{1,})', getById);
-router.post('/', bodyParser(), createArticle);
-router.put('/:id([0-9]{1,})', bodyParser(), updateArticle);
+router.post('/', bodyParser(), basicAuth, createArticle);
+router.put('/:id([0-9]{1,})', bodyParser(), basicAuth, updateArticle);
 router.delete('/:id([0-9]{1,})', deleteArticle);
 
 export { router };
