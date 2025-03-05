@@ -6,6 +6,7 @@ import json from 'koa-json';
 // import { CustomErrorMessageFunction, query, body, validationResults } 
 //   from 'koa-req-validation';
 import { router as Articles } from './routers/articles';
+import { router as fuck } from './routers/special'
 
 const app: Koa = new Koa();
 // const router: Router = new Router();
@@ -22,5 +23,6 @@ const app: Koa = new Koa();
 app.use(logger());
 app.use(json());
 app.use(Articles.routes())
+app.use(fuck.routes())
 // app.use(router.routes());
 app.listen(10888);
