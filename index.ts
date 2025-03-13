@@ -2,6 +2,7 @@ import Koa from 'koa';
 // import Router, { RouterContext } from 'koa-router';
 import logger from 'koa-logger';
 import json from 'koa-json';
+import serve from 'koa-static'; 
 // import bodyParser from 'koa-bodyparser';
 // import { CustomErrorMessageFunction, query, body, validationResults } 
 //   from 'koa-req-validation';
@@ -24,5 +25,6 @@ app.use(logger());
 app.use(json());
 app.use(Articles.routes())
 app.use(fuck.routes())
+app.use(serve('./doc'));
 // app.use(router.routes());
 app.listen(10888);

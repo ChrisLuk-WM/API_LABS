@@ -14,12 +14,14 @@
     "koa-passport": "^6.0.0",
     "koa-req-validation": "^0.17.0",
     "koa-router": "11.0.2",
+    "koa-static": "^5.0.0",
     "passport-http": "^0.3.0",
     "pg": "^8.13.3",
     "sequelize": "^6.37.5",
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "@types/koa-passport": "^6.0.3"
+    "@types/koa-passport": "^6.0.3",
+    "@types/koa-static": "^4.0.4"
   }
 }
