@@ -1,5 +1,5 @@
 import { Sequelize, QueryTypes } from "sequelize";
-import { config }  from '../config';
+const { config } = require('../config');
 
 export const run_query = async (query: any, values: any) => {
     try {

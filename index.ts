@@ -26,5 +26,7 @@ app.use(json());
 app.use(Articles.routes())
 app.use(fuck.routes())
 app.use(serve('./doc'));
+
+console.log("Serving")
 // app.use(router.routes());
 app.listen(10888);
